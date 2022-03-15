@@ -11,7 +11,16 @@ const reset = document.createElement('button');
 reset.textContent = 'RESET';
 reset.style.display = 'block';
 
+const colorPicker = document.createElement("input");
+colorPicker.textContent = 'Color: ';
+colorPicker.type = 'color';
+
+
+
 heading.appendChild(reset);
+heading.appendChild(colorPicker);
+
+
 
 
 for (i=0; i < 256; i++){
@@ -19,12 +28,12 @@ for (i=0; i < 256; i++){
     div1.classList.add('gridBox')
     
     div1.addEventListener('mouseover', function(e){
-        e.target.style.backgroundColor = 'red';
+        e.target.style.backgroundColor = colorPicker.value;
     })
 
-    div1.style.width = '65.5px';
+    div1.style.width = '31.75px';
     div1.style.display = 'flex';
-    div1.style.height = '65.5px';
+    div1.style.height = '31.75px';
     div1.style.border = 'solid black 1px'
     div1.style.backgroundColor = 'gray';
 
@@ -34,7 +43,7 @@ for (i=0; i < 256; i++){
 function generateGrid(){
     var gridSize = window.prompt('Enter new grid size')
     let area = gridSize * gridSize;
-    let boxSize = (1080/gridSize-2)+'px';
+    let boxSize = (540/gridSize-2)+'px';
 
     for (i=0; i < area; i++){
         const div1 = document.createElement('div');
